@@ -18,3 +18,17 @@ G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.RazorTarge
 G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.dll
 G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.pdb
 G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.genruntimeconfig.cache
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.MvcApplicationPartsAssemblyInfo.cs
+G:\Project\BackEnd\back-end\back-end\obj\Debug\netcoreapp3.1\back-end.csproj.CopyComplete
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
