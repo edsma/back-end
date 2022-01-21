@@ -13,6 +13,8 @@ namespace back_end.Entidades
         [StringLength(maximumLength: 10)]
         public string Nombre { get; set; }
 
+        public List<PeliculaGenero> PeliculaGenero { get; set; }
+
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

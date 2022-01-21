@@ -65,3 +65,12 @@ G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.Extensions.Depen
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Azure.Core.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Azure.Storage.Blobs.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Azure.Storage.Common.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\System.Memory.Data.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.dll
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
+G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\EFCoreSqlServerNetTopologySuite.cs
