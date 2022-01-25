@@ -12,5 +12,8 @@
         public string Foto { get; set; }
 
         public string Biografia { get; set; }
+
+
+
     }
 }

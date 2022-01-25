@@ -62,6 +62,14 @@
             return mapper.Map<List<GeneroDto>>(generos);
         }
 
+        [HttpGet("todos")]
+        public async Task<ActionResult<List<GeneroDto>>> Todos([FromQuery] PaginacionDTO pagionacionDto) 
+        {
+            List<Genero> generos = await context.Genero.ToListAsync();
+            return mapper.Map<List<GeneroDto>>(generos);
+        }
+
+
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, [FromBody] GeneroCreacionDto generoEdicionDto)
         {

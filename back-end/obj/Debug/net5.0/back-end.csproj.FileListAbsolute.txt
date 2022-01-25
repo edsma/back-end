@@ -43,7 +43,6 @@ G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\runtimes\win-x86\native\Mi
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.csproj.AssemblyReference.cache
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.GeneratedMSBuildEditorConfig.editorconfig
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.AssemblyInfoInputs.cache
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.AssemblyInfo.cs
@@ -74,3 +73,4 @@ G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.EntityFrameworkC
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.dll
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\EFCoreSqlServerNetTopologySuite.cs
+G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.csproj.AssemblyReference.cache
