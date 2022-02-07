@@ -1,4 +1,5 @@
 ﻿using back_end.Entidades;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace back_end
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -21,6 +22,7 @@ namespace back_end
                 .HasKey(x => new { x.PeliculaId, x.GeneroId});
             modelBuilder.Entity<PeliculaCines>()
                 .HasKey(x => new { x.PeliculaId, x.CineId});
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Genero> Genero { get; set; }

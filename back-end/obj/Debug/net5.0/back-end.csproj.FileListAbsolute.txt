@@ -74,3 +74,4 @@ G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.dll
 G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\EFCoreSqlServerNetTopologySuite.cs
 G:\Project\BackEnd\back-end\back-end\obj\Debug\net5.0\back-end.csproj.AssemblyReference.cache
+G:\Project\BackEnd\back-end\back-end\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

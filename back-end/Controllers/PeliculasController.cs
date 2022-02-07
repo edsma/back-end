@@ -182,6 +182,20 @@
             return Mapper.Map<List<PeliculaDto>>(peliculas);
         }
 
+        [HttpDelete("id:int")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            Peliculas pelicula = await Context.Peliculas.FirstOrDefaultAsync(x => x.Id == id);
+            if (pelicula == null)
+            {
+                return NotFound();
+            }
+            Context.Remove(pelicula);
+            await Context.SaveChangesAsync();
+            await AlmacenadorArchivos.BorrarArchivo(pelicula.Poster, Constants.common.contenedorPeliculas);
+            return NoContent();
+        }
+
 
         [HttpGet("PostGet")]
         private void EscribirOrdenActores(Peliculas pelicula)
