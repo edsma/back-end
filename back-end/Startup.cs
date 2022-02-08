@@ -17,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using NetTopologySuite;
 using NetTopologySuite.Geometries;
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Text;
 using static back_end.Utilidades.Constants;
@@ -27,6 +28,7 @@ namespace back_end
     {
         public Startup(IConfiguration configuration)
         {
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             Configuration = configuration;
         }
 
@@ -74,6 +76,10 @@ namespace back_end
                         Encoding.UTF8.GetBytes(Configuration["llavejwt"])),
                     ClockSkew = TimeSpan.Zero
                 });
+            services.AddAuthorization(opciones =>
+            {
+                opciones.AddPolicy("EsAdmin", policy => policy.RequireClaim("role", "admin"));
+            });
             services.AddResponseCaching();
             services.AddScoped<IRepositorio, RepositorioMemoria>();
             services.AddControllers(options =>

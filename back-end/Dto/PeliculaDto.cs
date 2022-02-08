@@ -27,6 +27,8 @@ namespace back_end.Dto
 
         public List<CineDto> Cines { get; set; }
 
+        public double PromedioVoto  { get; set; }
+        public int VotoUsuario { get; set; }
 
     }
 }

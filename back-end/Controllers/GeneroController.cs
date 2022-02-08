@@ -19,6 +19,7 @@
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
     public class GeneroController : ControllerBase
     {
         private readonly IRepositorio repositorio;
@@ -63,6 +64,7 @@
         }
 
         [HttpGet("todos")]
+        [AllowAnonymous]
         public async Task<ActionResult<List<GeneroDto>>> Todos([FromQuery] PaginacionDTO pagionacionDto) 
         {
             List<Genero> generos = await context.Genero.ToListAsync();

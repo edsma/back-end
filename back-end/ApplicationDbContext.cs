@@ -35,5 +35,7 @@ namespace back_end
         public DbSet<PeliculaGenero> PeliculaGenero { get; set; }
         public DbSet<PeliculaCines> PeliculaCines { get; set; }
 
+        public DbSet<Rating> Ratings { get; set; }
+
     }
 }
