@@ -88,7 +88,7 @@ namespace back_end
             });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "V1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "My API", Version = "V2" });
             });
         }
 
@@ -125,7 +125,7 @@ namespace back_end
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V1");
                 });
             }
 

@@ -3,6 +3,7 @@
     using AutoMapper;
     using back_end.Dto;
     using back_end.Entidades;
+    using Microsoft.AspNetCore.Identity;
     using NetTopologySuite.Geometries;
     using System.Collections.Generic;
 
@@ -13,6 +14,7 @@
             CreateMap<Genero, GeneroDto>().ReverseMap();
             CreateMap<GeneroCreacionDto, Genero>();
             CreateMap<Actor, ActorDto>().ReverseMap();
+            CreateMap<Polizas, PolizasDto>().ReverseMap();
             CreateMap<ActorCreacionDto, Actor>()
                 .ForMember(x => x.Foto,options => options.Ignore());
             CreateMap<CineCreacionDto, Cine>()
@@ -30,6 +32,7 @@
                 .ForMember(x => x.Generos, options => options.MapFrom(MapearPeliculasGeneros))
                 .ForMember(x=> x.Actor, options => options.MapFrom(MapearPeliculasActores))
                 .ForMember(x => x.Cines, options => options.MapFrom(MapearPeliculasCines));
+            CreateMap<IdentityUser, UsuarioDto>();
                 
         }
 

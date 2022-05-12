@@ -37,5 +37,7 @@ namespace back_end
 
         public DbSet<Rating> Ratings { get; set; }
 
+        public DbSet<Polizas> Polizas { get; set; }
+
     }
 }

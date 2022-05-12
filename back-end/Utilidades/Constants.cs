@@ -18,5 +18,15 @@ namespace back_end.Utilidades
         {
             public const string valorNoAdecuado = "El valor dado no es del tipo adecuado";
         }
+
+        public struct Sp
+        {
+            public const string GetPolizas = "GetPolizas";
+            public const string ActualizarPoliza = "ActualizarPoliza";
+            public const string ConsultarPoliza = "ConsultarPoliza";
+            public const string DeletePoliza = "DeletePoliza";
+
+            
+        }
     }
 }

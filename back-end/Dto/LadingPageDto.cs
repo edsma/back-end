@@ -10,5 +10,6 @@ namespace back_end.Dto
         public List<PeliculaDto> enCines { get; set; }
 
         public List<PeliculaDto> proximosEstrenos { get; set; }
+
     }
 }

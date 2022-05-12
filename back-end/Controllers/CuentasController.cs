@@ -1,12 +1,18 @@
-﻿using back_end.Dto;
+﻿using AutoMapper;
+using back_end.Dto;
+using back_end.Utilidades;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +26,48 @@ namespace back_end.Controllers
 
         public CuentasController(UserManager<IdentityUser> userManager, 
             IConfiguration configuration,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            ApplicationDbContext context,
+            IMapper mapper)
         {
             UserManager = userManager;
             Configuration = configuration;
             SignInManager = signInManager;
+            Context = context;
+            Mapper = mapper;
         }
 
         public UserManager<IdentityUser> UserManager { get; }
         public IConfiguration Configuration { get; }
         public SignInManager<IdentityUser> SignInManager { get; }
+        public ApplicationDbContext Context { get; }
+        public IMapper Mapper { get; }
+
+        [HttpGet("listadoUsuarios")]
+        public async Task<ActionResult<List<UsuarioDto>>> ListadoUsuarios([FromQuery] PaginacionDTO paginacioNDto)
+        {
+            IQueryable<IdentityUser> queryable = Context.Users.AsQueryable();
+            await HttpContext.InsertarParametroPaginacionCabecera(queryable);
+            List<IdentityUser> usuarios = await queryable.OrderBy(x=> x.Email).Paginar(paginacioNDto).ToListAsync();
+            return Mapper.Map<List<UsuarioDto>>(usuarios);
+        }
+
+        [HttpPost("HacerAdmin")]
+        public async Task<ActionResult> HacerAdmin([FromBody] string usuarioId)
+        {
+            IdentityUser usuario = await UserManager.FindByIdAsync(usuarioId);
+            await UserManager.AddClaimAsync(usuario, new Claim("role", "admin"));
+            return NoContent();
+        }
+
+        [HttpPost("RemoverAdmin")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
+        public async Task<ActionResult> RemoverAdmin([FromBody] string usuarioId)
+        {
+            IdentityUser usuario = await UserManager.FindByIdAsync(usuarioId);
+            await UserManager.RemoveClaimAsync(usuario, new Claim("role", "admin"));
+            return NoContent();
+        }
 
         [HttpPost("Crear")]
         public async Task<ActionResult<RespuestaAutenticacion>> Crear([FromBody] CredencialesUsuarios credenciales)

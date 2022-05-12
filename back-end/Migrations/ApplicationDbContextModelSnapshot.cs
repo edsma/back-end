@@ -366,6 +366,51 @@ namespace back_end.Migrations
                     b.ToTable("PeliculasActores");
                 });
 
+            modelBuilder.Entity("back_end.Entidades.Polizas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("CoberturasCubiertas")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DireccionCliente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaNacimientoCliente")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaPoliza")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IdentificacionCliente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreCiudadCliente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreCliente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombrePoliza")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlacaAutoCliente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ValorMaximoPoliza")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("VehiculoCuentaInspeccion")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Polizas");
+                });
+
             modelBuilder.Entity("back_end.Entidades.Rating", b =>
                 {
                     b.Property<int>("Id")
