@@ -24,7 +24,7 @@ namespace back_end.Controllers
     public class CuentasController : ControllerBase
     {
 
-        public CuentasController(UserManager<IdentityUser> userManager, 
+        public CuentasController(UserManager<IdentityUser> userManager,
             IConfiguration configuration,
             SignInManager<IdentityUser> signInManager,
             ApplicationDbContext context,
@@ -44,11 +44,12 @@ namespace back_end.Controllers
         public IMapper Mapper { get; }
 
         [HttpGet("listadoUsuarios")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
         public async Task<ActionResult<List<UsuarioDto>>> ListadoUsuarios([FromQuery] PaginacionDTO paginacioNDto)
         {
             IQueryable<IdentityUser> queryable = Context.Users.AsQueryable();
             await HttpContext.InsertarParametroPaginacionCabecera(queryable);
-            List<IdentityUser> usuarios = await queryable.OrderBy(x=> x.Email).Paginar(paginacioNDto).ToListAsync();
+            List<IdentityUser> usuarios = await queryable.OrderBy(x => x.Email).Paginar(paginacioNDto).ToListAsync();
             return Mapper.Map<List<UsuarioDto>>(usuarios);
         }
 
@@ -92,7 +93,7 @@ namespace back_end.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<RespuestaAutenticacion>> Login([FromBody] CredencialesUsuarios credenciales)
         {
-            Microsoft.AspNetCore.Identity.SignInResult resultado = await SignInManager.PasswordSignInAsync(credenciales.Email,credenciales.Password,isPersistent:false,lockoutOnFailure:false);
+            Microsoft.AspNetCore.Identity.SignInResult resultado = await SignInManager.PasswordSignInAsync(credenciales.Email, credenciales.Password, isPersistent: false, lockoutOnFailure: false);
             if (resultado.Succeeded)
             {
                 return await ConstruirToken(credenciales);
@@ -101,6 +102,23 @@ namespace back_end.Controllers
             {
                 return BadRequest("Login incorrecto");
             }
+        }
+
+        [HttpPost("PasswordChange")]
+        public async Task<ActionResult<RespuestaAutenticacion>> changePassword(CredencialesUsuarios usermodel)
+        {
+            var user = await UserManager.FindByEmailAsync(usermodel.Email);
+            if (user == null)
+            {
+                return Ok();
+            }
+            user.PasswordHash = UserManager.PasswordHasher.HashPassword(user, usermodel.Password);
+            var result = await UserManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                //throw exception......
+            }
+            return Ok();
         }
 
         private async Task<RespuestaAutenticacion> ConstruirToken(CredencialesUsuarios credenciales)

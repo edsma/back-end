@@ -34,7 +34,6 @@ namespace back_end.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<ActionResult<List<PolizasDto>>> Get()
         {
             int top = 6;
@@ -57,8 +56,8 @@ namespace back_end.Controllers
             string storedProcedure = $"exec dbo.{Sp.GetPolizas} " +
                     $"'{polizaDto.NombreCliente}', " +
                     $"'{polizaDto.IdentificacionCliente}', " +
-                    $"'{polizaDto.FechaNacimientoCliente.ToShortDateString()}', " +
-                    $"'{polizaDto.FechaPoliza.ToShortDateString()}', " +
+                    $"'{polizaDto.FechaNacimientoCliente.ToString("yyyy-MM-dd")}', " +
+                    $"'{polizaDto.FechaPoliza.ToString("yyyy-MM-dd")}', " +
                     $"'{polizaDto.CoberturasCubiertas}', " +
                     $"'{polizaDto.ValorMaximoPoliza}', " +
                     $"'{polizaDto.NombrePoliza}', " +
